@@ -19,9 +19,8 @@ export class AppStack extends Stack {
     //create s3 bucket
     const bucket = new s3.Bucket(this, "CDKFirstAppForRSS", {
       bucketName: "cdk-first-app-for-rss-vikal",
-      publicReadAccess: true,
-      websiteIndexDocument: "index.html",
-      websiteErrorDocument: "index.html",
+      publicReadAccess: false,
+      blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
     });
 
     bucket.addToResourcePolicy(
